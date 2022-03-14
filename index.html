@@ -18,6 +18,7 @@
                 <option value="ko-KR">한국</option>
             </select></p>
             <button onclick="recStart();" id="startButton">Start</button>
+            <button onclick="test();" id="startButton">TEST</button>
         </form>
         <p><div id="content" style="text-align: center;"></div></p>
         <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
@@ -58,6 +59,18 @@
                 speech.start();
                 button.disabled = "disabled";
             };
+
+            function test()
+            {
+                $.ajax({
+                        type: 'POST',
+                        url: 'https://textbox.kokoa.dev/cn/test',
+                        data: "name=" + name.value + "&val=TESTTETST!!!",
+                        contentType: "text/plain",
+                        success: function(data) {
+                        }
+                    });
+            }
 
             function lngChange(lng)
             {
